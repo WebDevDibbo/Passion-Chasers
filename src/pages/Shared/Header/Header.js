@@ -8,17 +8,19 @@ import { Link } from 'react-router-dom';
 const Header = () => {
     return (
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark">
-      <Container>
+      <Container className='text-start'>
         <Navbar.Brand href="#home">Passion Chasers</Navbar.Brand>
         <Navbar.Toggle aria-controls="responsive-navbar-nav" />
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#features">Courses</Nav.Link>
-            <Nav.Link href="#pricing">FAQ</Nav.Link>
+            <Nav.Link >Home</Nav.Link>
+            <Nav.Link >Courses</Nav.Link>
+            <Nav.Link >FAQ</Nav.Link>
+            <Link to='/blog' className='text-decoration-none text-white'>Blog</Link>
             <Nav.Link>toogle Theme</Nav.Link>
           </Nav>
-          <Nav className='mt-sm-2'>
-            <Link className='mb-sm-2 me-lg-3' to='/login'>
+          <Nav className='mt-2'>
+            <Link className='mb-sm-3 mb-3  me-lg-3' to='/login'>
                 <Button variant="primary">Login</Button>
             </Link>
             <Link className='hover-warning' to='/register'>

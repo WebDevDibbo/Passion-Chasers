@@ -1,29 +1,52 @@
 import React from "react";
+import { ButtonGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
+import { FaGithub, FaGoogle} from "react-icons/fa";
+
 
 const Login = () => {
   return (
-    <div className="shadow mt-lg-5 mt-4 p-3 mb-4 border border-warning rounded h-100">
-      <Form>
-        <h2 className="text-center  text-dark py-4">Login Here</h2>
-        <Form.Group className="mb-3" controlId="formBasicEmail">
+    <div>
+      <Form className="shadow-lg bg-body mt-lg-5 mt-4 p-3 mb-4 rounded h-100">
+        <h2 className="text-center  text-dark py-4 fw-bolder">Login Here</h2>
+        <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
           <Form.Label>Email address</Form.Label>
-          <Form.Control name="email" type="email" placeholder="Enter email" required />
+          <Form.Control
+            name="email"
+            type="email"
+            placeholder="Enter email"
+            required
+          />
         </Form.Group>
 
-        <Form.Group className="mb-3" controlId="formBasicPassword">
+        <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
           <Form.Label>Password</Form.Label>
-          <Form.Control name="password" type="password" placeholder="Password" />
+          <Form.Control
+            name="password"
+            type="password"
+            placeholder="Password"
+          />
         </Form.Group>
-        
-        <Button className="px-4" variant="primary" type="submit">
+
+        <Button className="px-4 mb-2" variant="primary" type="submit">
           login
         </Button>
+        <ButtonGroup vertical className="d-block w-50 mx-auto">
+        <Button className="mb-2" variant="outline-primary">
+          <FaGoogle></FaGoogle> Login with Google
+        </Button>
+        <Button variant="outline-dark">
+         <FaGithub></FaGithub> Login with Github
+        </Button>
+      </ButtonGroup>
       </Form>
-      <p className="mt-4">New to Passion Chasers? <Link to='/register'>Create a New Account</Link> </p>
-      </div>
+      <p className="mt-4">
+        New to Passion Chasers? <Link to="/register">Create a New Account</Link>{" "}
+      </p>
+      
+    </div>
   );
 };
 
