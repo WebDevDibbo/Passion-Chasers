@@ -17,7 +17,7 @@ const Header = () => {
             <Nav.Link>toogle Theme</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link href="#deets"><Button variant="primary">Login</Button></Nav.Link>
+            <Nav.Link ><Button variant="primary">Login</Button></Nav.Link>
             <Nav.Link>
             <Button variant="info">SignUp</Button>
             </Nav.Link>
