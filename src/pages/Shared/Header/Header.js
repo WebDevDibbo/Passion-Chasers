@@ -5,6 +5,7 @@ import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
 import './Header.css'
+import LeftSideNav from '../LeftSideNav/LeftSideNav';
 
 const Header = () => {
     return (
@@ -15,7 +16,7 @@ const Header = () => {
         <Navbar.Collapse id="responsive-navbar-nav">
           <Nav className="me-auto">
             <Nav.Link >Home</Nav.Link>
-            <Nav.Link >Courses</Nav.Link>
+            <Link to='/courses' className='text-decoration-none  my-auto mx-lg-2' >Courses</Link>
             <Nav.Link >FAQ</Nav.Link>
             <Link to='/blog' className='blogs  my-auto mx-lg-2'>Blog</Link>
             <Nav.Link>toogle Theme</Nav.Link>
@@ -25,9 +26,12 @@ const Header = () => {
                 <Button variant="outline-primary">Login</Button>
             </Link>
             <Link to='/register'>
-            <Button className=''  variant="outline-info">SignUp</Button>
+            <Button  variant="outline-info">SignUp</Button>
             </Link>
           </Nav>
+          <div className='d-lg-none py-3'>
+            <LeftSideNav></LeftSideNav>
+          </div>
         </Navbar.Collapse>
       </Container>
     </Navbar>
