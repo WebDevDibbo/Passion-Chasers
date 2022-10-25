@@ -3,6 +3,7 @@ import Container from 'react-bootstrap/Container';
 import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
+import { Link } from 'react-router-dom';
 
 const Header = () => {
     return (
@@ -17,10 +18,12 @@ const Header = () => {
             <Nav.Link>toogle Theme</Nav.Link>
           </Nav>
           <Nav>
-            <Nav.Link ><Button variant="primary">Login</Button></Nav.Link>
-            <Nav.Link>
+            <Link className='me-2' to='/login'>
+                <Button variant="primary">Login</Button>
+            </Link>
+            <Link to='/register'>
             <Button variant="info">SignUp</Button>
-            </Nav.Link>
+            </Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
