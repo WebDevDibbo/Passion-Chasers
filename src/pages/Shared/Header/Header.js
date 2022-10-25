@@ -17,12 +17,12 @@ const Header = () => {
             <Nav.Link href="#pricing">FAQ</Nav.Link>
             <Nav.Link>toogle Theme</Nav.Link>
           </Nav>
-          <Nav>
-            <Link className='me-2' to='/login'>
+          <Nav className='mt-sm-2'>
+            <Link className='mb-sm-2 me-lg-3' to='/login'>
                 <Button variant="primary">Login</Button>
             </Link>
-            <Link to='/register'>
-            <Button variant="info">SignUp</Button>
+            <Link className='hover-warning' to='/register'>
+            <Button  variant="info">SignUp</Button>
             </Link>
           </Nav>
         </Navbar.Collapse>
