@@ -6,15 +6,16 @@ import Login from "../../pages/Login/Login";
 import Register from "../../pages/Register/Register";
 
 export const routes = createBrowserRouter([
+    
     {
         path:'/',
         element: <Main></Main>,
         children:[
             {
                 path:'/',
-                element:<Home></Home>
-                
+                element: <Home></Home>
             },
+            
             {
                 path:'/login',
                 element: <Login></Login>
@@ -28,6 +29,7 @@ export const routes = createBrowserRouter([
                 element:<Blog></Blog>
             }
         ]
-        }        
+        }
+               
 
 ])

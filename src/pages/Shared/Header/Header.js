@@ -4,6 +4,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import Button from 'react-bootstrap/Button';
 import { Link } from 'react-router-dom';
+import './Header.css'
 
 const Header = () => {
     return (
@@ -16,15 +17,15 @@ const Header = () => {
             <Nav.Link >Home</Nav.Link>
             <Nav.Link >Courses</Nav.Link>
             <Nav.Link >FAQ</Nav.Link>
-            <Link to='/blog' className='text-decoration-none text-white'>Blog</Link>
+            <Link to='/blog' className='blogs  my-auto mx-lg-2'>Blog</Link>
             <Nav.Link>toogle Theme</Nav.Link>
           </Nav>
           <Nav className='mt-2'>
             <Link className='mb-sm-3 mb-3  me-lg-3' to='/login'>
-                <Button variant="primary">Login</Button>
+                <Button variant="outline-primary">Login</Button>
             </Link>
-            <Link className='hover-warning' to='/register'>
-            <Button  variant="info">SignUp</Button>
+            <Link to='/register'>
+            <Button className=''  variant="outline-info">SignUp</Button>
             </Link>
           </Nav>
         </Navbar.Collapse>

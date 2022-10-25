@@ -42,7 +42,7 @@ const Login = () => {
         </Button>
       </ButtonGroup>
       </Form>
-      <p className="mt-4">
+      <p className="mt-4 text-center">
         New to Passion Chasers? <Link to="/register">Create a New Account</Link>{" "}
       </p>
       
