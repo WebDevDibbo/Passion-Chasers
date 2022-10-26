@@ -1,7 +1,9 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
+import { FaDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import './CourseSummaryCard.css'
 
 const CourseSummaryCard = ({ course }) => {
     console.log(course)
@@ -11,7 +13,10 @@ const CourseSummaryCard = ({ course }) => {
       <Card className="text-center">
        
         <Card.Body>
-          <Card.Title className="pb-3 fw-bold">{title}</Card.Title>
+          <div className="py-3 d-flex align-items-center justify-content-between">
+          <Card.Title className=" fw-bold">{title}</Card.Title>
+          <FaDownload className="pdf-btn"/>
+          </div>
           <Card.Img variant="top" src={img} />
           <Card.Text className="pt-4">
            {

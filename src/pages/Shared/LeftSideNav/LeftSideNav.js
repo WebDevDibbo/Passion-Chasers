@@ -11,7 +11,7 @@ const LeftSideNav = () => {
     },[])
     return (
         <div className='shadow-lg p-4 bg-body rounded'>
-            <h2 className='mb-4 py-3'>Course Category:{categories.length}</h2>
+            <h2 className='mb-4 py-3'>Course Category</h2>
             <div>
                 {
                     categories.map(category => <p key={category.id}
