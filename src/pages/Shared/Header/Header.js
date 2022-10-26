@@ -7,6 +7,8 @@ import { Link } from "react-router-dom";
 import "./Header.css";
 import LeftSideNav from "../LeftSideNav/LeftSideNav";
 import { AuthContext } from "../../../Contexts/AuthProvider/AuthProvider";
+import { Image } from "react-bootstrap";
+import { FaUserAlt } from "react-icons/fa";
 
 const Header = () => {
   const { user } = useContext(AuthContext);
@@ -31,12 +33,17 @@ const Header = () => {
             <Nav.Link>toogle Theme</Nav.Link>
           </Nav>
           <Nav className="mt-2">
-            <p className="text-white">{user?.displayName}</p>
+            <p className="text-white mt-1">{user?.displayName}</p>
             <Link className="mb-sm-3 mb-3  me-lg-3" to="/login">
               <Button variant="outline-primary">Login</Button>
             </Link>
             <Link to="/register">
-              <Button variant="outline-info">SignUp</Button>
+              {/* <Button variant="outline-info">SignUp</Button> */}
+              {user?.photoURL ? 
+               <Image style={{height:'40px'}} roundedCircle src={user.photoURL}></Image>  
+               :
+               <FaUserAlt></FaUserAlt>
+            }
             </Link>
           </Nav>
           <div className="d-lg-none py-3">
