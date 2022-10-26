@@ -5,12 +5,13 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle } from "react-icons/fa";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { googleLogin, signIn } = useContext(AuthContext);
+  const { googleLogin, signIn,githubLogin } = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
+  const githubProvider = new GithubAuthProvider()
 
   const handleGoogleSignIn = () => {
     googleLogin(googleProvider)
@@ -20,6 +21,14 @@ const Login = () => {
       })
       .catch((error) => console.error(error));
   };
+  const handleGithubSignIn = ()=>{
+    githubLogin(githubProvider)
+    .then(result => {
+      const user = result.user;
+      console.log(user);
+    })
+    .catch(error => console.error(error))
+  }
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -69,7 +78,7 @@ const Login = () => {
           >
             <FaGoogle></FaGoogle> Login with Google
           </Button>
-          <Button variant="outline-dark">
+          <Button onClick={handleGithubSignIn} variant="outline-dark">
             <FaGithub></FaGithub> Login with Github
           </Button>
         </ButtonGroup>
