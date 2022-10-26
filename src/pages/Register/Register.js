@@ -4,9 +4,21 @@ import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 
 const Register = () => {
+
+  const handleSubmit = (event) =>{
+    event.preventDefault();
+    const form = event.target;
+    const name = form.name.value;
+    const photoURL = form.photoURL.value;
+    const email = form.email.value;
+    const password = form.password.value;
+    console.log(name,photoURL, email, password)
+        
+  }
+
   return (
     <div>
-      <Form className="shadow-lg bg-body mt-lg-2 mt-4 p-3 mb-4 rounded h-100">
+      <Form onSubmit={handleSubmit} className="shadow-lg bg-body mt-lg-2 mt-4 p-3 mb-4 rounded h-100">
         <h2 className="text-center fw-bolder  text-dark py-4">SignUp</h2>
         <Form.Group className="mb-3 text-start" controlId="formBasicEmail">
           <Form.Label>Name</Form.Label>
