@@ -1,12 +1,26 @@
-import React from "react";
+import React, { useContext } from "react";
 import { ButtonGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { FaGithub, FaGoogle} from "react-icons/fa";
+import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
+import { GoogleAuthProvider } from "firebase/auth";
 
 
 const Login = () => {
+  const {googleLogin} = useContext(AuthContext);
+
+  const googleProvider = new GoogleAuthProvider();
+
+  const handleGoogleSignIn = ()=>{
+         googleLogin(googleProvider)
+         .then(result => {
+          const user = result.user;
+          console.log(user)
+         })
+         .catch(error => console.error(error))
+  }
   return (
     <div>
       <Form className="shadow-lg bg-body mt-lg-5 mt-4 p-3 mb-4 rounded h-100">
@@ -34,7 +48,7 @@ const Login = () => {
           login
         </Button>
         <ButtonGroup vertical className="d-block w-50 mx-auto">
-        <Button className="mb-2" variant="outline-primary">
+        <Button onClick={handleGoogleSignIn} className="mb-2" variant="outline-primary">
           <FaGoogle></FaGoogle> Login with Google
         </Button>
         <Button variant="outline-dark">
