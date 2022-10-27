@@ -1,11 +1,11 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import { Link } from "react-router-dom";
 import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 
 const Register = () => {
-
+  const [error,setError] = useState(null)
   const {createUser} = useContext(AuthContext)
 
   const handleSubmit = (event) =>{
@@ -15,7 +15,13 @@ const Register = () => {
     const photoURL = form.photoURL.value;
     const email = form.email.value;
     const password = form.password.value;
-    console.log(name,photoURL, email, password)
+    const confirm = form.confirm.value;
+    console.log(name,photoURL, email, password,confirm)
+    
+    if(password !== confirm){
+      setError('Your Password did not matched')
+      return
+    }
 
     createUser(email,password)
     .then(result => {
@@ -65,10 +71,20 @@ const Register = () => {
             required
           />
         </Form.Group>
+        <Form.Group className="mb-3 text-start" controlId="formBasicPassword">
+          <Form.Label>Confirm Password</Form.Label>
+          <Form.Control
+            name="confirm"
+            type="password"
+            placeholder="Confirm Password"
+            required
+          />
+        </Form.Group>
 
         <Button className="px-4" variant="primary" type="submit">
           Sign Up
         </Button>
+        <p className="text-danger mt-3">{error}</p>
       </Form>
       <p className="mt-4 text-center">
         Already have an account? <Link to="/login">login</Link>
