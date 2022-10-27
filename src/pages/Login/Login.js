@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useState } from "react";
 import { ButtonGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -8,14 +8,15 @@ import { AuthContext } from "../../Contexts/AuthProvider/AuthProvider";
 import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
-  const { googleLogin, signIn,githubLogin } = useContext(AuthContext);
+  const { googleLogin, signIn, githubLogin} = useContext(AuthContext);
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
-  const navigate = useNavigate()
-  const location = useLocation()
+  const navigate = useNavigate();
+  const location = useLocation();
+ 
 
-  const from = location.state?.from?.pathname || '/'
+  const from = location.state?.from?.pathname || "/";
 
   const handleGoogleSignIn = () => {
     googleLogin(googleProvider)
@@ -25,14 +26,14 @@ const Login = () => {
       })
       .catch((error) => console.error(error));
   };
-  const handleGithubSignIn = ()=>{
+  const handleGithubSignIn = () => {
     githubLogin(githubProvider)
-    .then(result => {
-      const user = result.user;
-      console.log(user);
-    })
-    .catch(error => console.error(error))
-  }
+      .then((result) => {
+        const user = result.user;
+        console.log(user);
+      })
+      .catch((error) => console.error(error));
+  };
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -40,14 +41,17 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
+    
+    
+
     signIn(email, password)
       .then((result) => {
         const user = result.user;
         console.log(user);
         form.reset();
-        navigate(from,{replace:true})
+        navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error));
+      .catch((error) => console.error(error.message));
   };
   return (
     <div onSubmit={handleSubmit}>
@@ -72,10 +76,12 @@ const Login = () => {
             required
           />
         </Form.Group>
+        
 
         <Button className="px-4 mb-2" variant="primary" type="submit">
           login
         </Button>
+
         <ButtonGroup vertical className="d-block w-50 mx-auto">
           <Button
             onClick={handleGoogleSignIn}
@@ -84,6 +90,7 @@ const Login = () => {
           >
             <FaGoogle></FaGoogle> Login with Google
           </Button>
+
           <Button onClick={handleGithubSignIn} variant="outline-dark">
             <FaGithub></FaGithub> Login with Github
           </Button>

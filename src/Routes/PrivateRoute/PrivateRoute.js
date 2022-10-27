@@ -9,7 +9,7 @@ const PrivateRoute = ({children}) => {
     const location = useLocation()
 
     if(loading){
-       return  <Spinner animation="grow" />
+       return  <p className='text-center mt-5'><Spinner  animation="grow" /></p>
     }
     if(!user){
        return <Navigate to='/login' state={{from : location}} replace ></Navigate>
