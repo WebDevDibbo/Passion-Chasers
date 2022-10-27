@@ -10,7 +10,7 @@ const LeftSideNav = () => {
         .then(data => setCategories(data))
     },[])
     return (
-        <div className='shadow-lg p-4 bg-body rounded'>
+        <div className='shadow-lg p-4 mt-lg-4 rounded bg-white '>
             <h2 className='mb-4 py-3'>Course Category</h2>
             <div>
                 {

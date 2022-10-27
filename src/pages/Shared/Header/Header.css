@@ -5,10 +5,11 @@
 .blogs:hover{
     color: white;
 }
-.courses:hover{
-    color: white;
-}
+
 .courses{
     color:#adb5bd ;
     
+}
+.courses:hover{
+    color: white;
 }

@@ -8,6 +8,7 @@ import { useReactToPrint } from "react-to-print";
 
 const CourseDetails = () => {
   const courseDetails = useLoaderData();
+  
   const componentRef = useRef()
   const handlePdfBtn = useReactToPrint({
     content : () => componentRef.current,
