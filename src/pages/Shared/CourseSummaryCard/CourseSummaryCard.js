@@ -1,10 +1,8 @@
 import React from "react";
 import Button from "react-bootstrap/Button";
 import Card from "react-bootstrap/Card";
-import { FaDownload } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import "./CourseSummaryCard.css";
-
 
 const CourseSummaryCard = ({ course }) => {
   console.log(course);
@@ -13,10 +11,8 @@ const CourseSummaryCard = ({ course }) => {
     <div>
       <Card>
         <Card.Body>
-          <div className="py-3 d-flex align-items-center justify-content-between">
-            <Card.Title className=" fw-bold">{title}</Card.Title>
-            <FaDownload className="pdf-btn" />
-          </div>
+          <Card.Title className="pb-3 text-center fw-bold">{title}</Card.Title>
+
           <Card.Img variant="top" src={img} />
           <Card.Text className="pt-4">
             {details.length > 150 ? (
@@ -29,9 +25,9 @@ const CourseSummaryCard = ({ course }) => {
             )}
           </Card.Text>
           <Link to={`/checkoutRoute/${course._id}`}>
-          <Button className="me-5" variant="primary">
-            Get Premium Access
-          </Button>
+            <Button className="me-5" variant="primary">
+              Get Premium Access
+            </Button>
           </Link>
           <Link to={`/coursedetails/${course._id}`}>
             <Button variant="outline-info">Details</Button>
