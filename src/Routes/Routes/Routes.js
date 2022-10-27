@@ -19,7 +19,7 @@ export const routes = createBrowserRouter([
       {
         path: "/",
         element: <Home></Home>,
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://learning-app-server-xi.vercel.app/courses"),
       },
       {
         path: "/login",
@@ -35,22 +35,22 @@ export const routes = createBrowserRouter([
       },
       {
         path: "/courses",
-        loader: () => fetch("http://localhost:5000/courses"),
+        loader: () => fetch("https://learning-app-server-xi.vercel.app/courses"),
         element: <Courses></Courses>,
       },
       {
         path: "/category/:id",
         element: <CourseCategory></CourseCategory>,
-        loader: ({ params }) => fetch(`http://localhost:5000/category/${params.id}`)
+        loader: ({ params }) => fetch(`https://learning-app-server-xi.vercel.app/category/${params.id}`)
       },
       {
         path:'/coursedetails/:id',
         element: <CourseDetails></CourseDetails>,
-        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`)
+        loader: ({ params }) => fetch(`https://learning-app-server-xi.vercel.app/courses/${params.id}`)
       },
       {
         path:'/checkoutRoute/:id',
-        loader: ({ params }) => fetch(`http://localhost:5000/courses/${params.id}`),
+        loader: ({ params }) => fetch(`https://learning-app-server-xi.vercel.app/courses/${params.id}`),
         element:<PrivateRoute><CheckoutRoute></CheckoutRoute></PrivateRoute>
       },
       {
