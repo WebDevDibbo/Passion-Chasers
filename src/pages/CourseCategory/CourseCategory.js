@@ -5,7 +5,7 @@ import './CourseCategory.css'
 
 const CourseCategory = () => {
    
-   const courses = useLoaderData()
+   const courses = useLoaderData();
 
    console.log(courses)
     return (

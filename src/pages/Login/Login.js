@@ -1,4 +1,4 @@
-import React, { useContext} from "react";
+import React, { useContext, useState} from "react";
 import { ButtonGroup } from "react-bootstrap";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
@@ -9,6 +9,7 @@ import { GithubAuthProvider, GoogleAuthProvider } from "firebase/auth";
 
 const Login = () => {
   const { googleLogin, signIn, githubLogin} = useContext(AuthContext);
+  const [error, setError] = useState(null)
 
   const googleProvider = new GoogleAuthProvider();
   const githubProvider = new GithubAuthProvider();
@@ -23,6 +24,7 @@ const Login = () => {
       .then((result) => {
         const user = result.user;
         console.log(user);
+        navigate('/')
       })
       .catch((error) => console.error(error));
   };
@@ -41,9 +43,6 @@ const Login = () => {
     const email = form.email.value;
     const password = form.password.value;
 
-    
-    
-
     signIn(email, password)
       .then((result) => {
         const user = result.user;
@@ -51,7 +50,10 @@ const Login = () => {
         form.reset();
         navigate(from, { replace: true });
       })
-      .catch((error) => console.error(error.message));
+      .catch((error) =>{
+         console.error(error.message)
+         setError(error.message);
+        });     
   };
   return (
     <div onSubmit={handleSubmit}>
@@ -76,6 +78,7 @@ const Login = () => {
             required
           />
         </Form.Group>
+        <p className="text-danger">{error}</p>
         
 
         <Button className="px-4 mb-2" variant="primary" type="submit">

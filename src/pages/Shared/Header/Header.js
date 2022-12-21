@@ -14,7 +14,7 @@ const Header = () => {
 const { user, logOut } = useContext(AuthContext);
 
 const handleLogOut = () => {
-logOut()
+   logOut()
   .then((result) => {})
   .catch((error) => console.error(error));
 };
@@ -37,12 +37,12 @@ return (
         >
           Courses
         </Link>
-        <Nav.Link>FAQ</Nav.Link>
+        {/* <Nav.Link>FAQ</Nav.Link> */}
         <Link to="/blog" className="blogs  my-auto mx-lg-2">
           Blog
         </Link>
         
-        <Nav.Link>toogle Theme</Nav.Link>
+        {/* <Nav.Link>toogle Theme</Nav.Link> */}
       </Nav>
       <Nav className="mt-2">
         <>
